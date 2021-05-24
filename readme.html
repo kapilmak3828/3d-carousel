@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d animation</title>
+
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+}
+
+.ex1{
+    perspective: 1500px;
+}
+
+.cube{
+    font-size: 5em;
+    width: 5em;
+    margin: 1em auto;
+    transform-style: preserve-3d;
+    transform-origin: 2.5em 2.5em;
+    transform:rotateX(0deg);
+    transition: transform 2s;
+   
+}
+
+.side{
+  
+    position:absolute;
+    width: 5em;
+    height: 5em;
+    background-color: rgba(219, 61, 33, 1);
+    border: 1px solid whitesmoke;
+    text-align: center;
+    line-height: 5em;
+    box-shadow: 1px 1px 8px grey;
+}
+
+
+
+.front{
+    transform: translateZ(2.5em);
+}
+.back{
+    transform: rotateY(180deg) translateZ(2.5em) ;
+}
+.top{
+    transform: rotateX(90deg) translateZ(2.5em);
+}
+.bottom{
+    transform:  rotateX(-90deg) translateZ(2.5em);
+}
+.left{
+    transform: rotateY(-90deg) translateZ(2.5em);
+}
+.right{
+    transform: rotateY(90deg) translateZ(2.5em);
+}
+
+
+
+.prev {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    font-size: 40px;
+    cursor: pointer;
+    color: white;
+}
+.next{
+
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    font-size: 40px;
+    cursor: pointer;
+    color: white;
+}
+
+
+</style>
+
+
+
+
+</head>
+<body>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+    <div class="ex1">
+    <div class="cube" id="cube">
+
+    <div class="side front" ><img src="1.jpg" alt="" width="100%" height="100%"></div>
+    <div class="side back"><img src="2.jpg" alt="" width="100%" height="100%"></div>
+    <div class="side top"><img src="3.jpg" alt="" width="100%" height="100%"></div>
+    <div class="side bottom"><img src="4.jpg" alt="" width="100%" height="100%"></div>
+    <div class="side left"><img src="5.jpg" alt="" width="100%" height="100%"></div>
+    <div class="side right"><img src="4.jpg" alt="" width="100%" height="100%"></div>
+
+
+
+
+    </div>
+
+    </div>
+    
+
+  <script>
+
+
+var box  = document.getElementById('cube');
+
+function plusSlides(n){
+    
+    if(n==1){
+    box.style.transform += "rotateY(90deg)";
+    }
+    else{
+        box.style.transform += "rotateY(-90deg)";
+
+    }
+
+}
+
+  </script>  
+</body>
+</html>
